@@ -11,7 +11,7 @@ const Main = () => {
     const isLoginPage = location.pathname === '/login';
     const isRegisterPage = location.pathname === '/register';
 
-    const newsArticleRegex = /^\/news\/[a-zA-Z0-9]+$/i;
+    const newsArticleRegex = /^\/news\/[a-zA-Z0-9]+$/i;// here we can use includes to do easily without regex
     const isNewsDetails = newsArticleRegex.test(location.pathname);
 
     return (

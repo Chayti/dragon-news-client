@@ -1,10 +1,8 @@
 import React, { useContext } from 'react';
 import { Image } from 'react-bootstrap';
-import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import { FaUser } from 'react-icons/fa';
+import { FaUser, FaSignOutAlt } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import LeftSideNav from '../LeftSideNav/LeftSideNav';
@@ -49,10 +47,11 @@ const Header = () => {
 
             {(!isLoginPage && !isRegisterPage) && <Marquee></Marquee>}
 
-            <Navbar collapseOnSelect className='mb-4 container' expand="lg" bg="light">
+            <Navbar collapseOnSelect className='mb-4 container' expand="lg" bg="transparent">
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="me-auto">
+                    <div style={{ width: "8%" }}></div>
+                    <Nav className="mx-auto">
                         <Nav.Link><Link to='/' style={linkStyle}>Home</Link></Nav.Link>
                         <Nav.Link> <Link to='./' style={linkStyle}>About</Link></Nav.Link>
                         <Nav.Link><Link to='./' style={linkStyle}>Career</Link></Nav.Link>
@@ -75,6 +74,7 @@ const Header = () => {
                             {
                                 user?.uid ?
                                     <Button className="mx-3" variant="dark" onClick={handleLogOut}>Log out</Button>
+                                    // <FaSignOutAlt className="ms-3" />
                                     :
                                     <Link to='/login'><Button className="mx-3" variant="dark">Login</Button></Link>
                             }
